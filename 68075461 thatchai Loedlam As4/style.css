@@ -1,0 +1,113 @@
+body {
+    font-family: 'Kanit', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #fcfcfc; /* Soft white fallback */
+    background-image: url("bg.png"); /* Custom generated pattern */
+    background-repeat: repeat;
+    background-size: 400px; /* Adjust size for pattern scale */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    padding: 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95); /* High opacity white for contrast against pattern */
+    border-radius: 20px;
+    margin-top: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Soft shadow */
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.gallery {
+    display: grid;
+    /* Clean grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 20px;
+    padding: 10px;
+}
+
+.img-container {
+    border-radius: 12px;
+    overflow: hidden; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 4/3; /* Enforces uniform size */
+    background: #eee;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; 
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.img-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.img-container:hover img {
+    transform: scale(1.1);
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.92);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.full-image {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);
+    transform: scale(0.9);
+    transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.modal.open .full-image {
+    transform: scale(1);
+}
+
+.footer-info {
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #eee;
+}
+
+.student-info {
+    color: #444; 
+    font-size: 1.3rem;
+    font-weight: 500;
+}
